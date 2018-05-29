@@ -26,8 +26,14 @@ set hlsearch
 " KEYS
 " ===================================================================
 
+" Map leader key to space
+let mapleader=" "
+
 " <leader>s to reload config (default leader key: "\")
 map <leader>s :source ~/.vimrc<CR> 
+
+" re-open a file with <leader><leader>
+nnoremap <Leader><Leader> :e#<CR>
 
 " cancel a search with double ESCAPE
 " nnoremap <silent> <Esc> :nohlsearch<Bar>:echo<CR>
