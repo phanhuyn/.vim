@@ -36,7 +36,7 @@ map <leader>s :source ~/.vimrc<CR>
 nnoremap <Leader><Leader> :e#<CR>
 
 " cancel a search with double ESCAPE
-" nnoremap <silent> <Esc> :nohlsearch<Bar>:echo<CR>
+" noremap <silent> <Esc> :nohlsearch<Bar>:echo<CR>
 
 " ===================================================================
 " PLUGINS 
@@ -47,3 +47,27 @@ let g:lightline = {
       \ 'colorscheme': 'solarized',
       \ }
 set laststatus=2
+
+" NERDTree
+" auto on
+autocmd vimenter * NERDTree
+" toggle by <C-n>
+map <C-n> :NERDTreeToggle<CR>
+" ignore some files
+let NERDTreeIgnore=['\.DS_Store', '\~$', '\.swp']
+" show hidden files
+let NERDTreeShowHidden=1
+" close the NERDtree when open a file
+" let NERDTreeQuitOnOpen = 1
+" don't focus on NERDtree when open
+autocmd VimEnter * NERDTree
+autocmd VimEnter * wincmd p
+
+" ===================================================================
+" SETTINGS 
+" ===================================================================
+" make buffer modifiable
+" set modifiable
+
+" set hidden: allow hidden buffer to be switched
+set hidden
