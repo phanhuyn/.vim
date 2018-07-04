@@ -1,8 +1,18 @@
-"" pathogen
-execute pathogen#infect() 
+" ===================================================================
+" VIM-PLUG
+" ===================================================================
 
 "" vim-plug
 call plug#begin('~/.vim/bundle')
+
+" deoplete - autocompletion
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
 
 " golang autocomplete
 Plug 'nsf/gocode', { 'rtp': 'nvim', 'do': '~/.vim/bundle/gocode/nvim/symlink.sh' }
@@ -26,6 +36,9 @@ Plug 'itchyny/lightline.vim'
 " NERDTree
 Plug 'scrooloose/nerdtree'
 
+" NERDTree git
+Plug 'Xuyuanp/nerdtree-git-plugin'
+
 " NERDCommenter
 Plug 'scrooloose/nerdcommenter'
 
@@ -34,6 +47,12 @@ Plug 'vim-syntastic/syntastic'
 
 " vim-go
 Plug 'fatih/vim-go'
+
+" solarized dark theme
+Plug 'altercation/vim-colors-solarized'
+
+" ctrlp
+Plug 'kien/ctrlp.vim'
 
 call plug#end()
 
@@ -159,7 +178,7 @@ let g:go_highlight_function_calls = 1
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 
 " deoplete
-call deoplete#enable()
+" call deoplete#enable()
 let g:deoplete#enable_at_startup = 1
 
 " tagbar
