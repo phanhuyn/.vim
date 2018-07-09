@@ -57,7 +57,7 @@ Plug 'kien/ctrlp.vim'
 call plug#end()
 
 " ===================================================================
-" APPEARANCE
+" DISPLAY 
 " ===================================================================
 
 set number " show line number
@@ -85,6 +85,9 @@ autocmd WinEnter * setlocal cursorline
 autocmd WinLeave * setlocal nocursorline
 highlight CursorLine guibg=#303000 ctermbg=234
 
+" wrap text
+set wrap linebreak nolist
+
 " ===================================================================
 " KEYS
 " ===================================================================
@@ -104,6 +107,16 @@ nnoremap <Leader><Leader> :e#<CR>
 " tagbar
 nmap <leader>l :TagbarToggle<CR>
 
+" buffer cycling with Tab and Shift + Tab
+" display `:ls` when cycling through the tab
+:nnoremap <Tab> :bnext<CR>
+:nnoremap <S-Tab> :bprevious<CR>
+:nnoremap <A-n> :bnext<CR>:redraw<CR>:ls<CR>
+:nnoremap <A-p> :bprevious<CR>:redraw<CR>:ls<CR>
+
+" enter to clear search highlight
+"This unsets the "last search pattern" register by hitting return
+nnoremap <CR> :noh<CR><CR>
 " ===================================================================
 " PLUGINS 
 " ===================================================================
@@ -118,7 +131,7 @@ let g:lightline = {
 set laststatus=2
 
 " NERDTree
-"""""""""""""""""
+""""""""""""""""
 " auto on
 "autocmd vimenter * NERDTree
 let g:nerdtree_tabs_open_on_gui_startup=0
