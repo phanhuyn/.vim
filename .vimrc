@@ -109,8 +109,8 @@ nmap <leader>l :TagbarToggle<CR>
 
 " buffer cycling with Tab and Shift + Tab
 " display `:ls` when cycling through the tab
-:nnoremap <Tab> :bnext<CR>
-:nnoremap <S-Tab> :bprevious<CR>
+:nnoremap <Tab> :bprevious<CR>
+:nnoremap <S-Tab> :bnext<CR>
 :nnoremap <A-n> :bnext<CR>:redraw<CR>:ls<CR>
 :nnoremap <A-p> :bprevious<CR>:redraw<CR>:ls<CR>
 
