@@ -166,6 +166,7 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_auto_jump = 0
 
 let g:syntastic_go_checkers = ['go']
+let g:syntastic_python_flake8_exec = 'python3'
 
 " vim-go
 """""""""""""""""
