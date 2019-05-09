@@ -5,22 +5,6 @@
 "" vim-plug
 call plug#begin('~/.vim/bundle')
 
-" deoplete - autocompletion
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
-
-" golang autocomplete
-Plug 'nsf/gocode', { 'rtp': 'nvim', 'do': '~/.vim/bundle/gocode/nvim/symlink.sh' }
-Plug 'zchee/deoplete-go', { 'do': 'make'}
-
-" python auto-complete
-Plug 'zchee/deoplete-jedi'
-
 " show index in search
 Plug 'henrik/vim-indexed-search'
 
@@ -29,9 +13,6 @@ Plug 'henrik/vim-indexed-search'
 
 " tagbar
 Plug 'majutsushi/tagbar'
-
-" lightline
-Plug 'itchyny/lightline.vim'
 
 " NERDTree
 Plug 'scrooloose/nerdtree'
@@ -48,11 +29,42 @@ Plug 'vim-syntastic/syntastic'
 " vim-go
 Plug 'fatih/vim-go'
 
+" DISPLAY
+""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " solarized dark theme
 Plug 'altercation/vim-colors-solarized'
 
+" lightline
+Plug 'itchyny/lightline.vim'
+
+" indent line
+Plug 'Yggdroot/indentLine'
+
+" NAVIGATION
+""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ctrlp
 Plug 'kien/ctrlp.vim'
+
+" denite
+Plug 'Shougo/denite.nvim'
+
+" AUTOCOMPLETE
+""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" python auto-complete
+Plug 'zchee/deoplete-jedi'
+
+" deoplete - autocompletion
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
+
+" golang autocomplete
+Plug 'nsf/gocode', { 'rtp': 'nvim', 'do': '~/.vim/bundle/gocode/nvim/symlink.sh' }
+Plug 'zchee/deoplete-go', { 'do': 'make'}
 
 call plug#end()
 
@@ -117,6 +129,11 @@ nmap <leader>l :TagbarToggle<CR>
 " enter to clear search highlight
 "This unsets the "last search pattern" register by hitting return
 nnoremap <CR> :noh<CR><CR>
+
+" use arrow for moving graphical line
+nmap <up> gk
+nmap <down> gj
+
 " ===================================================================
 " PLUGINS 
 " ===================================================================
@@ -165,9 +182,6 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_auto_jump = 0
 
-" python checker
-let g:syntastic_python_flake8_exec = 'python3'
-" golint & go when save
 let g:syntastic_go_checkers = ['go', 'golint']
 
 " vim-go
@@ -194,10 +208,14 @@ let g:go_highlight_function_calls = 1
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 
 " deoplete
+" """"""""""""""""
 " call deoplete#enable()
 let g:deoplete#enable_at_startup = 1
+" single Esc to enter Normal mode
+:inoremap <Esc> <Esc><Esc>
 
 " tagbar
+" """"""""""""""""
 let g:tagbar_autofocus = 0
 
 " ===================================================================
@@ -232,3 +250,4 @@ set smartcase
 
 " set hidden: allow hidden buffer to be switched
 set hidden
+set conceallevel=0
