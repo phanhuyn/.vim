@@ -182,7 +182,8 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_auto_jump = 0
 
-let g:syntastic_go_checkers = ['go', 'golint']
+"let g:syntastic_go_checkers = ['go', 'golint']
+let g:syntastic_go_checkers = []
 
 " vim-go
 """""""""""""""""
@@ -227,8 +228,15 @@ set backspace=2
 
 " autoindent
 set autoindent
-set smartindent
-set cindent
+"set smartindent
+" set cindent
+
+" show existing tab with 4 spaces width
+set tabstop=4
+" when indenting with '>', use 4 spaces width
+set shiftwidth=4
+" On pressing tab, insert 4 spaces
+set expandtab
 
 " folding
 set foldmethod=indent   
@@ -241,6 +249,9 @@ set foldlevel=2
 " while search with all lower case will be case-insensitive
 set ignorecase
 set smartcase
+
+" disable auto indent when pasting
+set nopaste
 
 " ===================================================================
 " SETTINGS 
